@@ -52,11 +52,11 @@ const registerUser = async (req, res) => {
 
 // POST - Login User
 const loginUser = async (req, res) => {
-  const { username, password } = req.body;
+  const { login, password } = req.body;
   let userData;
 
   try {
-    userData = await User.findOne({ username });
+    userData = await User.findOne({ login });
     if (!userData) {
       return res.status(400).send({
         status: 400,
